@@ -153,6 +153,29 @@ export default function Context({ children }) {
     }));
   }
 
+  function updateScore(commentID, replyID, delta) {
+    setData((prevData) => ({
+      ...prevData,
+      comments: prevData.comments.map((comment) => {
+        if (comment.id !== commentID) return comment;
+
+        if (replyID === undefined || replyID === null) {
+          const nextScore = Math.max(0, comment.score + delta);
+          return { ...comment, score: nextScore };
+        }
+
+        return {
+          ...comment,
+          replies: comment.replies.map((reply) => {
+            if (reply.id !== replyID) return reply;
+            const nextScore = Math.max(0, reply.score + delta);
+            return { ...reply, score: nextScore };
+          }),
+        };
+      }),
+    }));
+  }
+
   return (
     <dataContext.Provider
       value={{
@@ -171,6 +194,7 @@ export default function Context({ children }) {
         updateReply,
         deleteComment,
         updateComment,
+        updateScore,
       }}
     >
       {children}

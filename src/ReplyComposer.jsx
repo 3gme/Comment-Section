@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDataContext } from "./Context";
 import styles from "./ReplyComposer.module.css";
 
@@ -11,10 +11,22 @@ function ReplyComposer({
   defaultText,
   onSubmitText,
   placeholder = "Add a reply...",
+  autoFocusInput = false,
 }) {
-  const [replyText, setReplyText] = useState(defaultText ?? `@${initialValue}`);
+  const [replyText, setReplyText] = useState(
+    defaultText ?? `@${initialValue} `,
+  );
+  const textAreaRef = useRef(null);
   const { currentUser, resolveAvatar } = useDataContext();
   const avatar = resolveAvatar(currentUser.image.png);
+
+  useEffect(() => {
+    if (!autoFocusInput || !textAreaRef.current) return;
+
+    textAreaRef.current.focus();
+    const textLength = textAreaRef.current.value.length;
+    textAreaRef.current.setSelectionRange(textLength, textLength);
+  }, [autoFocusInput]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -22,6 +34,7 @@ function ReplyComposer({
     if (!value) return;
     if (onSubmitText) {
       onSubmitText(value);
+      setReplyText(defaultText);
       return;
     }
 
@@ -47,6 +60,7 @@ function ReplyComposer({
 
     // reply to reply
     if (onReply && commentID) onReply(commentID, id, reply);
+
     setReplyText("");
   }
 
@@ -59,6 +73,7 @@ function ReplyComposer({
           className={styles.avatar}
         />
         <textarea
+          ref={textAreaRef}
           className={styles.input}
           value={replyText}
           onChange={(event) => setReplyText(event.target.value)}

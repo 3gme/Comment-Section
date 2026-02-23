@@ -6,8 +6,14 @@ import styles from "./RepliesList.module.css";
 import ReplyComposer from "./ReplyComposer";
 
 function RepliesList({ replies, commentID }) {
-  const { replyTo, setReplyTo, addReplyToReply, deleteReply, updateReply } =
-    useDataContext();
+  const {
+    replyTo,
+    setReplyTo,
+    addReplyToReply,
+    deleteReply,
+    updateReply,
+    updateScore,
+  } = useDataContext();
   const [editingReplyId, setEditingReplyId] = useState(null);
 
   return (
@@ -26,7 +32,10 @@ function RepliesList({ replies, commentID }) {
             />
           ) : (
             <article className={styles.replyItem}>
-              <Counter score={reply.score} />
+              <Counter
+                score={reply.score}
+                onChange={(delta) => updateScore(commentID, reply.id, delta)}
+              />
               <Body
                 comment={reply}
                 onDelete={() => deleteReply(commentID, reply.id)}
@@ -43,6 +52,7 @@ function RepliesList({ replies, commentID }) {
               onReply={addReplyToReply}
               commentID={commentID}
               id={reply.id}
+              autoFocusInput
             />
           )}
         </li>

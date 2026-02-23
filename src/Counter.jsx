@@ -1,17 +1,17 @@
 import { useState } from "react";
 import styles from "./Counter.module.css";
 
-function Counter({ score }) {
-  const [counter, setCounter] = useState(Number(score));
+function Counter({ score, onChange }) {
   const [clicked, setClicked] = useState(false);
 
   function handleInc() {
     setClicked(true);
-    setCounter((counter) => counter + 1);
+    onChange?.(1);
   }
   function handleDec() {
+    if (score <= 0) return;
     setClicked(true);
-    setCounter((counter) => counter - 1);
+    onChange?.(-1);
   }
 
   return (
@@ -19,7 +19,7 @@ function Counter({ score }) {
       <button onClick={handleInc} disabled={clicked}>
         +
       </button>
-      <span>{counter}</span>
+      <span>{score}</span>
       <button onClick={handleDec} disabled={clicked}>
         -
       </button>

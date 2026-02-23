@@ -9,8 +9,14 @@ import ReplyComposer from "./ReplyComposer";
 function Comment({ comment }) {
   const [isEditing, setIsEditing] = useState(false);
   const { score, replies = [], user, id, content } = comment;
-  const { replyTo, setReplyTo, addReplyToComment, deleteComment, updateComment } =
-    useDataContext();
+  const {
+    replyTo,
+    setReplyTo,
+    addReplyToComment,
+    deleteComment,
+    updateComment,
+    updateScore,
+  } = useDataContext();
   const hasReplies = replies.length > 0;
   const username = user.username;
 
@@ -27,7 +33,7 @@ function Comment({ comment }) {
         />
       ) : (
         <article className={styles.layout}>
-          <Counter score={score} />
+          <Counter score={score} onChange={(delta) => updateScore(id, null, delta)} />
           <Body
             comment={comment}
             onDelete={() => deleteComment(id)}
@@ -43,6 +49,7 @@ function Comment({ comment }) {
           initialValue={username}
           onReply={addReplyToComment}
           id={id}
+          autoFocusInput
         />
       )}
       {hasReplies && <RepliesList replies={replies} commentID={id} />}
