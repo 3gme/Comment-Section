@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import styles from "./App.module.css";
+import Comment from "./Comment";
+import { useDataContext } from "./Context";
+import ReplyComposer from "./ReplyComposer";
 
 function App() {
+  const data = useDataContext();
+  const { comments, addComment } = data;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.appContainer}>
+      <ul className={styles.commentsList}>
+        {comments.map((comment) => (
+          <Comment key={comment.id} comment={comment} />
+        ))}
+      </ul>
+      <div className={styles.composerDock}>
+        <ReplyComposer
+          buttonLabel="SEND"
+          defaultText=""
+          placeholder="Add a comment..."
+          onSubmitText={(newCommentText) => addComment(newCommentText)}
+        />
+      </div>
     </div>
   );
 }

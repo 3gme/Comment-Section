@@ -1,0 +1,48 @@
+.commentBlock {
+  margin-bottom: 1rem;
+}
+
+.layout {
+  display: flex;
+  gap: 1.2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+@media (width < 500px) {
+  .layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+  }
+
+  .layout > :first-child {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .layout > :last-child {
+    display: contents;
+  }
+
+  .layout > :last-child > :first-child,
+  .layout > :last-child > :nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  .layout > :last-child > :first-child {
+    grid-row: 1;
+  }
+
+  .layout > :last-child > :nth-child(2) {
+    grid-row: 2;
+  }
+
+  .layout > :last-child > :last-child {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+  }
+}

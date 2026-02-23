@@ -1,0 +1,35 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  height: 5rem;
+  background-color: var(--Grey-100);
+  padding: 0.2rem;
+  padding-inline: 0.4rem;
+  justify-content: space-between;
+  border-radius: 5px;
+  color: var(--Purple-600);
+}
+
+.counter button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--Purple-600);
+  cursor: pointer;
+}
+
+.counter button[disabled] {
+  opacity: 0.5;
+}
+
+@media (width < 500px) {
+  .counter {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: auto;
+    width: fit-content;
+    padding: 0.3rem 0.6rem;
+  }
+}

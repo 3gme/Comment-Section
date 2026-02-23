@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Interactive Comment Section
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React implementation of the Frontend Mentor Interactive Comments challenge.
 
-## Available Scripts
+Users can:
+- Add a new comment
+- Reply to comments and replies
+- Edit comments and replies
+- Delete comments and replies
+- Keep data persisted with `localStorage`
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- React (Create React App)
+- JavaScript (ES6+)
+- CSS Modules
+- Local Storage API
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `src/Context.js`: global state, CRUD handlers, localStorage sync
+- `src/App.js`: app layout, comments list, bottom composer
+- `src/Comment.jsx`: top-level comment item + edit/delete behavior
+- `src/RepliesList.jsx`: replies rendering + reply edit mode
+- `src/ReplyComposer.jsx`: reusable composer for reply, update, and send
+- `src/Body.jsx`: comment/reply body and action buttons
 
-### `npm test`
+## Local Development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+npm start
+```
 
-### `npm run build`
+## Build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm run build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## GitHub Pages Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project is configured for GitHub Pages at:
 
-### `npm run eject`
+`https://3gme.github.io/Comment-Section`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### One-time setup
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Deploy
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run deploy
+```
 
-## Learn More
+This command builds the app and publishes the `build` folder to the `gh-pages` branch.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Repository
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`https://github.com/3gme/Comment-Section`

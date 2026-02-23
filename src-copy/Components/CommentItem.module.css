@@ -1,0 +1,139 @@
+.comment {
+  background-color: var(--White);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  gap: 1.3rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.comment:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  height: 5rem;
+  background-color: var(--Grey-100);
+  padding: 0.5rem;
+  padding-inline: 0.8rem;
+  justify-content: space-between;
+  border-radius: 8px;
+  color: var(--Purple-600);
+  align-items: center;
+  flex-shrink: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.counter button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--Purple-600);
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  line-height: 1;
+}
+
+.counter button:hover {
+  background-color: var(--Purple-200);
+}
+
+.commentBody {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.header h4 {
+  font-size: 1rem;
+  color: var(--Grey-800);
+  font-weight: 600;
+  margin: 0;
+}
+
+.header span {
+  color: var(--Grey-500);
+  font-size: 0.85rem;
+}
+
+.you {
+  background-color: var(--Purple-600);
+  color: white;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0rem !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.header button {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--Purple-600);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.5rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.header button:hover {
+  color: var(--Purple-200);
+}
+
+.header button:first-of-type {
+  margin-right: 0.5rem;
+}
+
+.header button img {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+}
+
+.body {
+  font-size: 0.95rem;
+  color: var(--Grey-500);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.replyingTo {
+  color: var(--Purple-600);
+  font-weight: 600;
+  margin-right: 0.3rem;
+}
+
+/* full-width reply box container that appears below comment */
+.replyBoxContainer {
+  width: 100%;
+  margin-top: 1.2rem;
+  background-color: transparent;
+}

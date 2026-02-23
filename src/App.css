@@ -1,38 +1,33 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --Mobile: 375px;
+  --Desktop: 1440px;
+
+  --Purple-600: hsl(238, 40%, 52%);
+  --Pink-400: hsl(358, 79%, 66%);
+  --Purple-200: hsl(239, 57%, 85%);
+  --Pink-200: hsl(357, 100%, 86%);
+
+  --Grey-800: hsl(212, 24%, 26%);
+  --Grey-500: hsl(211, 10%, 45%);
+  --Grey-100: hsl(223, 19%, 93%);
+  --Grey-50: hsl(228, 33%, 97%);
+
+  --White: hsl(0, 100%, 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p {
+  font-size: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background-color: var(--Grey-50);
 }
